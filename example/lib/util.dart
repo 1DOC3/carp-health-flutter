@@ -1,11 +1,8 @@
 import 'package:health/health.dart';
 
-/// Data types available on iOS via Apple Health.
+/// List of data types available on iOS
 const List<HealthDataType> dataTypesIOS = [
   HealthDataType.ACTIVE_ENERGY_BURNED,
-  HealthDataType.APPLE_STAND_TIME,
-  HealthDataType.APPLE_STAND_HOUR,
-  HealthDataType.APPLE_MOVE_TIME,
   HealthDataType.AUDIOGRAM,
   HealthDataType.BASAL_ENERGY_BURNED,
   HealthDataType.BLOOD_GLUCOSE,
@@ -25,7 +22,6 @@ const List<HealthDataType> dataTypesIOS = [
   HealthDataType.HEART_RATE,
   HealthDataType.HEART_RATE_VARIABILITY_SDNN,
   HealthDataType.HEIGHT,
-  HealthDataType.INSULIN_DELIVERY,
   HealthDataType.RESPIRATORY_RATE,
   HealthDataType.PERIPHERAL_PERFUSION_INDEX,
   HealthDataType.STEPS,
@@ -33,12 +29,10 @@ const List<HealthDataType> dataTypesIOS = [
   HealthDataType.WEIGHT,
   HealthDataType.FLIGHTS_CLIMBED,
   HealthDataType.DISTANCE_WALKING_RUNNING,
-  HealthDataType.WALKING_SPEED,
   HealthDataType.MINDFULNESS,
   HealthDataType.SLEEP_AWAKE,
   HealthDataType.SLEEP_ASLEEP,
   HealthDataType.SLEEP_IN_BED,
-  HealthDataType.SLEEP_LIGHT,
   HealthDataType.SLEEP_DEEP,
   HealthDataType.SLEEP_REM,
   HealthDataType.WATER,
@@ -49,28 +43,23 @@ const List<HealthDataType> dataTypesIOS = [
   HealthDataType.HEADACHE_MODERATE,
   HealthDataType.HEADACHE_SEVERE,
   HealthDataType.HEADACHE_UNSPECIFIED,
-  HealthDataType.LEAN_BODY_MASS,
 
   // note that a phone cannot write these ECG-based types - only read them
   HealthDataType.ELECTROCARDIOGRAM,
-  // HealthDataType.HIGH_HEART_RATE_EVENT,
-  // HealthDataType.IRREGULAR_HEART_RATE_EVENT,
-  // HealthDataType.LOW_HEART_RATE_EVENT,
-  // HealthDataType.RESTING_HEART_RATE,
-  // HealthDataType.WALKING_HEART_RATE,
-  // HealthDataType.ATRIAL_FIBRILLATION_BURDEN,
+  HealthDataType.HIGH_HEART_RATE_EVENT,
+  HealthDataType.IRREGULAR_HEART_RATE_EVENT,
+  HealthDataType.LOW_HEART_RATE_EVENT,
+  HealthDataType.RESTING_HEART_RATE,
+  HealthDataType.WALKING_HEART_RATE,
 
   HealthDataType.NUTRITION,
-  HealthDataType.GENDER,
-  HealthDataType.BLOOD_TYPE,
-  HealthDataType.BIRTH_DATE,
-  HealthDataType.MENSTRUATION_FLOW,
-  HealthDataType.WATER_TEMPERATURE,
-  HealthDataType.UNDERWATER_DEPTH,
-  HealthDataType.UV_INDEX,
 ];
 
-/// Data types available on Android via the Google Health Connect API.
+/// List of data types available on Android.
+///
+/// Note that these are only the ones supported on Android's Health Connect API.
+/// Android's Google Fit have more types that we support in the [HealthDataType]
+/// enumeration.
 const List<HealthDataType> dataTypesAndroid = [
   HealthDataType.ACTIVE_ENERGY_BURNED,
   HealthDataType.BASAL_ENERGY_BURNED,
@@ -81,23 +70,18 @@ const List<HealthDataType> dataTypesAndroid = [
   HealthDataType.BODY_FAT_PERCENTAGE,
   HealthDataType.HEIGHT,
   HealthDataType.WEIGHT,
-  HealthDataType.LEAN_BODY_MASS,
-  HealthDataType.BODY_MASS_INDEX,
+  // HealthDataType.BODY_MASS_INDEX,
   HealthDataType.BODY_TEMPERATURE,
   HealthDataType.HEART_RATE,
-  HealthDataType.HEART_RATE_VARIABILITY_RMSSD,
   HealthDataType.STEPS,
+  // HealthDataType.MOVE_MINUTES, // TODO: Find alternative for Health Connect
   HealthDataType.DISTANCE_DELTA,
-  HealthDataType.SPEED,
   HealthDataType.RESPIRATORY_RATE,
-  HealthDataType.SLEEP_ASLEEP,
-  HealthDataType.SLEEP_AWAKE_IN_BED,
   HealthDataType.SLEEP_AWAKE,
-  HealthDataType.SLEEP_DEEP,
+  HealthDataType.SLEEP_ASLEEP,
   HealthDataType.SLEEP_LIGHT,
-  HealthDataType.SLEEP_OUT_OF_BED,
+  HealthDataType.SLEEP_DEEP,
   HealthDataType.SLEEP_REM,
-  HealthDataType.SLEEP_UNKNOWN,
   HealthDataType.SLEEP_SESSION,
   HealthDataType.WATER,
   HealthDataType.WORKOUT,
@@ -105,5 +89,4 @@ const List<HealthDataType> dataTypesAndroid = [
   HealthDataType.FLIGHTS_CLIMBED,
   HealthDataType.NUTRITION,
   HealthDataType.TOTAL_CALORIES_BURNED,
-  HealthDataType.MENSTRUATION_FLOW,
 ];

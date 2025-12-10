@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.android.tools.build:gradle:8.1.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -25,15 +25,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 36
+    compileSdkVersion 34
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '1.8'
     }
 
     sourceSets {
@@ -41,7 +41,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 36
+        targetSdkVersion 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -51,11 +51,15 @@ android {
 }
 
 dependencies {
-    def composeBom = platform('androidx.compose:compose-bom:2025.09.00')
+    def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
     implementation(composeBom)
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.2.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation("com.google.android.gms:play-services-fitness:21.1.0")
+    implementation("com.google.android.gms:play-services-auth:20.2.0")
 
-    implementation("androidx.health.connect:connect-client:1.1.0-rc03")
-    implementation "androidx.fragment:fragment-ktx:1.8.9"
+    // The new health connect api
+    implementation("androidx.health.connect:connect-client:1.1.0-alpha07")
+    def fragment_version = "1.6.2"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
 }
