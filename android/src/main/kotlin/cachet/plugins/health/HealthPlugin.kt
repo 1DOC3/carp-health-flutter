@@ -48,7 +48,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import java.time.*
 import java.time.temporal.ChronoUnit
 import java.util.*
@@ -507,16 +506,6 @@ class HealthPlugin(private var channel: MethodChannel? = null) :
         // called
         // depending on the user's project. onAttachedToEngine or registerWith must both be defined
         // in the same class.
-        companion object {
-                @Suppress("unused")
-                @JvmStatic
-                fun registerWith(registrar: Registrar) {
-                        val channel = MethodChannel(registrar.messenger(), CHANNEL_NAME)
-                        val plugin = HealthPlugin(channel)
-                        registrar.addActivityResultListener(plugin)
-                        channel.setMethodCallHandler(plugin)
-                }
-        }
 
         override fun success(p0: Any?) {
                 handler?.post { mResult?.success(p0) }
